@@ -20,14 +20,14 @@ extern float mediana;
 
 
 
-void insertsort(int*, int);
-void quicksort(int*, int, int);
-int fmin(int*,int);
-int fmax(int*,int);
-void fmediana( int*, int);
-void fsrednia(int*, int);
-void fsortbabelkowe(int*, int);
-void fsortkubelkowe(int*, int);
-void fsortkopcowanie(int*, int);
+void insertsort(int, int);
+void quicksort(int, int, int);
+int fmin(int,int);
+int fmax(int,int);
+void fmediana( int, int);
+void fsrednia(int, int);
+void fsortbabelkowe(int, int);
+void fsortkubelkowe(int, int);
+void fsortkopcowanie(int, int);
 void fjarnikaprima(int[1000][1000], int);
 void fdijkstra(int[1000][1000], int);

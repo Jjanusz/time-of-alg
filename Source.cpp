@@ -224,14 +224,13 @@ while (true)
 
 	cout << "Liczba powtórzeń:\n";
 	cin >> powt;
-	string* danewejslowa = new string[wielkosczbioru];
-	int* danewej = new int[wielkosczbioru];
+	
 	double* czaswykpoj = new double[powt];
 	if (buffer == "10" || buffer == "11"){
-		liczit = matrixit.size();
+		liczit = liczbydomacierzy.iteracje.size();
 	}
 	else {
-		liczit = tabit.size();
+		liczit = liczby.iteracje.size();
 	}
 	
 		for (int j = 0; j < liczit; j++)
@@ -239,29 +238,21 @@ while (true)
 			for (int k = 0; k < powt; k++)
 			{
 
-				int iloscdanych = tabit[j];
+				int iloscdanych = liczby.iteracje[j];
 				cout << iloscdanych;
-				int iloscdanychmac = matrixit[j];
+				int iloscdanychmac = liczbydomacierzy.iteracje[j];
 				
 
 				srand(time(NULL));
 
 				
 
-				
-				for (int i = 0; i < iloscdanych; i++) {
-
-
-					danewej[i]=danezbioru[i];
-					danewejslowa[i] = daneslowa[i];
-				
-				}
-				
-				
+			
+				/*Tworzenie macierzy sąsiedztwa*/
 				int g=0;
 				for (int i = 0; i < iloscdanychmac; i++) {
 					for (int j = 0; j < iloscdanychmac; j++) {
-						macierzfun[i][j] = macierzzbioru[g];
+						macierzfun[i][j] = liczbydomacierzy.dane[g];
 						g++;
 						if (i == j) {
 							macierzfun[i][j] = 0;
@@ -286,7 +277,7 @@ while (true)
 				{
 
 					auto t1 = high_resolution_clock::now();
-					fsrednia(danewej, iloscdanych);
+					fsrednia(liczby.dane, iloscdanych);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
 					
@@ -297,7 +288,7 @@ while (true)
 				else if (buffer == "2")
 				{
 					auto t1 = high_resolution_clock::now();
-					fmax(danewej, iloscdanych);
+					fmax(liczby.dane, iloscdanych);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
 					
@@ -308,7 +299,7 @@ while (true)
 				else if (buffer == "3")
 				{
 					auto t1 = high_resolution_clock::now();
-					fmin(danewej, iloscdanych);
+					fmin(liczby.dane, iloscdanych);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
 					
@@ -319,7 +310,7 @@ while (true)
 				else if (buffer == "4")
 				{
 					auto t1 = high_resolution_clock::now();
-					fmediana(danewej, iloscdanych);
+					fmediana(liczby.dane, iloscdanych);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
 					
@@ -331,7 +322,7 @@ while (true)
 				else if (buffer == "5")
 				{
 					auto t1 = high_resolution_clock::now();
-					quicksort(danewej,0,iloscdanych-1);
+					quicksort(liczby.dane,0,iloscdanych-1);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
 
@@ -342,7 +333,7 @@ while (true)
 				else if (buffer == "6")
 				{
 				auto t1 = high_resolution_clock::now();
-				insertsort(danewej, iloscdanych);
+				insertsort(liczby.dane, iloscdanych);
 				auto t2 = high_resolution_clock::now();
 
 				duration<double, std::milli> ms_double = t2 - t1;
@@ -360,7 +351,7 @@ while (true)
 				else if (buffer == "7")
 				{
 				auto t1 = high_resolution_clock::now();
-				fsortbabelkowe(danewej, iloscdanych);
+				fsortbabelkowe(liczby.dane, iloscdanych);
 				auto t2 = high_resolution_clock::now();
 
 				duration<double, std::milli> ms_double = t2 - t1;
@@ -373,7 +364,7 @@ while (true)
 				else if (buffer == "8")
 				{
 				auto t1 = high_resolution_clock::now();
-				fsortkubelkowe(danewej, iloscdanych);
+				fsortkubelkowe(liczby.dane, iloscdanych);
 				auto t2 = high_resolution_clock::now();
 
 				duration<double, std::milli> ms_double = t2 - t1;
@@ -387,7 +378,7 @@ while (true)
 				else if (buffer == "9")
 				{
 				auto t1 = high_resolution_clock::now();
-				fsortkopcowanie(danewej, iloscdanych);
+				fsortkopcowanie(liczby.dane, iloscdanych);
 				auto t2 = high_resolution_clock::now();
 
 				duration<double, std::milli> ms_double = t2 - t1;
