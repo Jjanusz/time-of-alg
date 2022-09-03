@@ -19,7 +19,7 @@ Opracowal Michal Knasiecki
 
 
 
-void insertsort(int danewej[], int iloscdanych)
+void insertsort(vector<int>& danewej, int iloscdanych)
 {
 	int x, j;
 	int* tab = new int[iloscdanych];
@@ -55,7 +55,7 @@ void insertsort(int danewej[], int iloscdanych)
 
 
 
-void quicksort( int danewej[],int x, int y)
+void quicksort(vector<int>& danewej,int x, int y)
 {
 	int i, j, v, temp;
 	i = x;
@@ -80,7 +80,7 @@ if (i < y) quicksort(danewej, i, y);
 
 
 
-int fmin(int danewej[], int iloscdanych)
+int funmin(vector<int>& danewej, int iloscdanych)
 {
 
 
@@ -98,7 +98,8 @@ int fmin(int danewej[], int iloscdanych)
 
 
 }
-int fmax(int danewej[], int iloscdanych)
+
+int funmax(vector<int>& danewej, int iloscdanych)
 {
 
 
@@ -118,7 +119,7 @@ int fmax(int danewej[], int iloscdanych)
 
 
 
-void fmediana(int danewej[], int iloscdanych)
+void fmediana(vector<int>& danewej, int iloscdanych)
 {
 	mediana = 0;
 	quicksort(danewej, 0, iloscdanych - 1);
@@ -143,7 +144,7 @@ void fmediana(int danewej[], int iloscdanych)
 
 }
 
-void fsrednia(int danewej[], int iloscdanych)
+void fsrednia(vector<int>& danewej, int iloscdanych)
 {
 
 
@@ -162,7 +163,7 @@ void fsrednia(int danewej[], int iloscdanych)
 
 
 
-void fsortbabelkowe(int danewej[], int iloscdanych)
+void fsortbabelkowe(vector<int>& danewej, int iloscdanych)
 {
 	for(int i=0;i<iloscdanych;i++){
 				for(int j=1;j<iloscdanych-i;j++){
@@ -178,13 +179,13 @@ void fsortbabelkowe(int danewej[], int iloscdanych)
 	}
 }
 
-void fsortkubelkowe(int danewej[], int iloscdanych)
+void fsortkubelkowe(vector<int>& danewej, int iloscdanych)
 {
 	int k = iloscdanych;
 
 	int range;
-	int max = fmax(danewej, iloscdanych);
-	int min = fmin(danewej, iloscdanych);
+	int max = funmax(danewej, iloscdanych);
+	int min = funmin(danewej, iloscdanych);
 
 	range = abs(max - min);
 	int ilosckubelkow = range;
@@ -229,7 +230,7 @@ void fsortkubelkowe(int danewej[], int iloscdanych)
 }
 	 
 
-void fsortkopcowanie(int danewej[], int iloscdanych)  
+void fsortkopcowanie(vector <int>& danewej, int iloscdanych)  
 {
 	int j;
 	int k;

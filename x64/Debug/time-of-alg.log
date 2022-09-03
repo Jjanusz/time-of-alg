@@ -1,0 +1,11 @@
+﻿  Funkcje.cpp
+  Source.cpp
+C:\Users\jedre\source\repos\Jjanusz\time-of-alg\Source.cpp(221,10): warning C4566: character represented by universal-character-name '\u0105' cannot be represented in the current code page (1252)
+C:\Users\jedre\source\repos\Jjanusz\time-of-alg\Source.cpp(221,10): warning C4566: character represented by universal-character-name '\u0142' cannot be represented in the current code page (1252)
+C:\Users\jedre\source\repos\Jjanusz\time-of-alg\Source.cpp(221,10): warning C4566: character represented by universal-character-name '\u0119' cannot be represented in the current code page (1252)
+C:\Users\jedre\source\repos\Jjanusz\time-of-alg\Source.cpp(224,10): warning C4566: character represented by universal-character-name '\u0144' cannot be represented in the current code page (1252)
+C:\Users\jedre\source\repos\Jjanusz\time-of-alg\Source.cpp(461,13): warning C4566: character represented by universal-character-name '\u015B' cannot be represented in the current code page (1252)
+C:\Users\jedre\source\repos\Jjanusz\time-of-alg\Source.cpp(476,20): warning C4566: character represented by universal-character-name '\u015B' cannot be represented in the current code page (1252)
+C:\Users\jedre\source\repos\Jjanusz\time-of-alg\Source.cpp(476,20): warning C4566: character represented by universal-character-name '\u0107' cannot be represented in the current code page (1252)
+  Generating Code...
+  time-of-alg.vcxproj -> C:\Users\jedre\source\repos\Jjanusz\time-of-alg\x64\Debug\time-of-alg.exe

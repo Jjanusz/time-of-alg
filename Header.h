@@ -1,4 +1,4 @@
-
+#include<vector>
 
 
 extern int macierzfun[1000][1000];
@@ -10,8 +10,8 @@ extern int  *danegenerowane;
 extern  int  *danewej;
 extern int *tabit;
 extern int *danezbioru;
-extern double* czaswyk;
-extern double* czaswykpoj;
+
+
 extern  int  linieconf;
 extern int  min;
 extern  int  max;
@@ -20,14 +20,14 @@ extern float mediana;
 
 
 
-void insertsort(int, int);
-void quicksort(int, int, int);
-int fmin(int,int);
-int fmax(int,int);
-void fmediana( int, int);
-void fsrednia(int, int);
-void fsortbabelkowe(int, int);
-void fsortkubelkowe(int, int);
-void fsortkopcowanie(int, int);
+void insertsort(std::vector<int>&, int);
+void quicksort(std::vector<int>&, int, int);
+int funmin(std::vector<int>&,int);
+int funmax(std::vector<int>&,int);
+void fmediana(std::vector<int>&, int);
+void fsrednia(std::vector<int>&, int);
+void fsortbabelkowe(std::vector<int>&, int);
+void fsortkubelkowe(std::vector<int>&, int);
+void fsortkopcowanie(std::vector<int>&, int);
 void fjarnikaprima(int[1000][1000], int);
 void fdijkstra(int[1000][1000], int);

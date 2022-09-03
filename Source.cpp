@@ -131,8 +131,6 @@ int main() {
 	string instancesize;
 	string matrixsize;
 	string buffer;
-	int numbersgenerated = 1000000;
-	int wielkosczbioru = 1000000;
 	int liczit = 0;
 	int liczitnum = 0;
 	int liczitmat = 0;
@@ -196,6 +194,7 @@ liczbydomacierzy.pobierzdane(matrixsize);
 liczby.pobierzdane(instancesize);
 slowa.pobierzdane(instancesize);
 int indeks=0;
+
 for (auto i:liczbydomacierzy.dane) {
 
 
@@ -204,7 +203,7 @@ for (auto i:liczbydomacierzy.dane) {
 	
 }
 
-cout << indeks;
+
 
 
 
@@ -225,7 +224,7 @@ while (true)
 	cout << "Liczba powtórzeń:\n";
 	cin >> powt;
 	
-	double* czaswykpoj = new double[powt];
+	
 	if (buffer == "10" || buffer == "11"){
 		liczit = liczbydomacierzy.iteracje.size();
 	}
@@ -233,23 +232,28 @@ while (true)
 		liczit = liczby.iteracje.size();
 	}
 	
+	vector <double> czaswyk;
 		for (int j = 0; j < liczit; j++)
 		{
+			vector <double> czaswykpoj;
+			
+			int iloscdanych = liczby.iteracje[j];
+
+			int iloscdanychmac = liczbydomacierzy.iteracje[j];
+			
 			for (int k = 0; k < powt; k++)
 			{
 
-				int iloscdanych = liczby.iteracje[j];
-				cout << iloscdanych;
-				int iloscdanychmac = liczbydomacierzy.iteracje[j];
 				
+				vector<int> danewej = { liczby.dane.begin() , liczby.dane.end() - (400000 - iloscdanych) };
 
 				srand(time(NULL));
 
 				
-
+				
 			
 				/*Tworzenie macierzy sąsiedztwa*/
-				int g=0;
+				/*int g=0;
 				for (int i = 0; i < iloscdanychmac; i++) {
 					for (int j = 0; j < iloscdanychmac; j++) {
 						macierzfun[i][j] = liczbydomacierzy.dane[g];
@@ -271,75 +275,74 @@ while (true)
 				
 				}
 				
-							
+				*/
 
 				if (buffer == "1")
 				{
 
 					auto t1 = high_resolution_clock::now();
-					fsrednia(liczby.dane, iloscdanych);
+					fsrednia(danewej, iloscdanych);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
 					
 					
-					czaswykpoj[k] = ms_double.count();
+					czaswykpoj.push_back(ms_double.count());
 				}
 
 				else if (buffer == "2")
 				{
 					auto t1 = high_resolution_clock::now();
-					fmax(liczby.dane, iloscdanych);
+					funmax(danewej, iloscdanych);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
+					czaswykpoj.push_back(ms_double.count());
 					
-				
-					czaswykpoj[k] = ms_double.count();
 				}
 
 				else if (buffer == "3")
 				{
 					auto t1 = high_resolution_clock::now();
-					fmin(liczby.dane, iloscdanych);
+					funmin(danewej, iloscdanych);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
 					
 					
-					czaswykpoj[k] = ms_double.count();
+					czaswykpoj.push_back(ms_double.count());
 				}
 
 				else if (buffer == "4")
 				{
 					auto t1 = high_resolution_clock::now();
-					fmediana(liczby.dane, iloscdanych);
+					fmediana(danewej, iloscdanych);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
 					
 					
-					czaswykpoj[k] = ms_double.count();
+					czaswykpoj.push_back(ms_double.count());
 
 				}
 
 				else if (buffer == "5")
 				{
 					auto t1 = high_resolution_clock::now();
-					quicksort(liczby.dane,0,iloscdanych-1);
+					quicksort(danewej,0,iloscdanych-1);
 					auto t2 = high_resolution_clock::now();
 					duration<double, std::milli> ms_double = t2 - t1;
 
 
-					czaswykpoj[k] = ms_double.count();
+					czaswykpoj.push_back(ms_double.count());
 
 				}
 				else if (buffer == "6")
 				{
-				auto t1 = high_resolution_clock::now();
-				insertsort(liczby.dane, iloscdanych);
-				auto t2 = high_resolution_clock::now();
+					auto t1 = high_resolution_clock::now();
+					insertsort(liczby.dane, iloscdanych);
+					auto t2 = high_resolution_clock::now();
 
-				duration<double, std::milli> ms_double = t2 - t1;
+					duration<double, std::milli> ms_double = t2 - t1;
 
 
-				czaswykpoj[k] = ms_double.count();
+					czaswykpoj.push_back(ms_double.count());
 
 				}
 
@@ -357,7 +360,7 @@ while (true)
 				duration<double, std::milli> ms_double = t2 - t1;
 
 
-				czaswykpoj[k] = ms_double.count();
+				czaswykpoj.push_back(ms_double.count());
 
 				}
 
@@ -370,7 +373,7 @@ while (true)
 				duration<double, std::milli> ms_double = t2 - t1;
 
 
-				czaswykpoj[k] = ms_double.count();
+				czaswykpoj.push_back(ms_double.count());
 
 				}
 
@@ -384,7 +387,7 @@ while (true)
 				duration<double, std::milli> ms_double = t2 - t1;
 
 
-				czaswykpoj[k] = ms_double.count();
+				czaswykpoj.push_back(ms_double.count());
 
 				}
 
@@ -395,10 +398,10 @@ while (true)
 				fjarnikaprima(macierzfun, iloscdanychmac);
 				auto t2 = high_resolution_clock::now();
 
-duration<double, std::milli> ms_double = t2 - t1;
+				duration<double, std::milli> ms_double = t2 - t1;
 
 
-czaswykpoj[k] = ms_double.count();
+				czaswykpoj.push_back(ms_double.count());
 
 				}
 
@@ -411,7 +414,7 @@ czaswykpoj[k] = ms_double.count();
 				duration<double, std::milli> ms_double = t2 - t1;
 
 
-				czaswykpoj[k] = ms_double.count();
+				czaswykpoj.push_back(ms_double.count());
 
 				}
 
@@ -423,8 +426,8 @@ czaswykpoj[k] = ms_double.count();
 
 				duration<double, std::milli> ms_double = t2 - t1;
 
-
-				czaswykpoj[k] = ms_double.count();
+				
+				czaswykpoj.push_back(ms_double.count());
 
 				}
 				
@@ -452,13 +455,14 @@ czaswykpoj[k] = ms_double.count();
 
 			}
 			sredniaczas = sredniaczas / powt;
-			czaswyk[j] = sredniaczas;
+			
+			czaswyk.push_back(sredniaczas);
 			if (buffer == "10" || buffer == "11") {
-				cout << "Czas wykonania dla macierzy o wielkości " << matrixit[j] << "x" << matrixit[j]<<"  ";
+				cout << "Czas wykonania dla macierzy o wielkości " << liczbydomacierzy.iteracje[j] << "x" << liczbydomacierzy.iteracje[j] <<"  ";
 				cout << czaswyk[j] << '\n';
 			}
 			else {
-				cout << "Czas wykonania dla " << tabit[j] << " iteracji: ";
+				cout << "Czas wykonania dla " << liczby.iteracje[j] << " iteracji: ";
 				cout << czaswyk[j] << '\n';
 			}
 			/*Liczenie średniego czasu*/
@@ -474,11 +478,11 @@ czaswykpoj[k] = ms_double.count();
 		{
 			if(buffer == "10" || buffer == "11"){
 			
-				plikwyjsciowy << matrixit[j];
+				plikwyjsciowy << liczbydomacierzy.iteracje[j];
 			}
 			else {
 
-				plikwyjsciowy << tabit[j];
+				plikwyjsciowy << liczby.iteracje[j];
 			}
 			
 			if (j < liczit - 1)
