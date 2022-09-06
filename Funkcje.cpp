@@ -399,3 +399,32 @@ void fdijkstra(int macierzfun[1000][1000], int iloscdanychmac) {
 
 
 
+int fhash(string slowo, int iloscdanych) {
+	 int h = 5381;
+	int a = 33;
+	string slowo1;
+
+
+
+	for (int j = 0; j < slowo.size(); ++j) {
+
+
+
+		/*h = 2 * h + 1 - (slowo[j] & 1);*/
+
+		h = (((h << 5) + h) + slowo[j]) % (iloscdanych * 2);
+
+		/*h = ((h << 5) + h) + a;*/
+
+
+
+	}
+	return h;
+
+
+
+
+
+}
+
+

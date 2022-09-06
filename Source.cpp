@@ -16,39 +16,6 @@ using namespace std::chrono_literals;
 int macierzfun[1000][1000];
 
 
-int fhash(string slowo,int iloscdanych) {
-	unsigned int h = 5381;
-	int a = 33;
-	string slowo1;
-
-
-
-	for (int j = 0; j < slowo.size(); ++j) {
-
-
-		
-		/*h = 2 * h + 1 - (slowo[j] & 1);*/
-		
-		h = (((h << 5) + h) + slowo[j]) % (iloscdanych*2);
-		
-		/*h = ((h << 5) + h) + a;*/
-		
-	
-		
-	}
-	return h;
-
-
-
-
-
-}
-
-
-
-
-
-
 template <typename T> class zbiordanych {
 
 public:
@@ -94,25 +61,11 @@ public:
 	}
 
 
-
-
 private:
 	 char delimiter;
 	string filename;
 	
-	
-
-
 };
-
-
-
-
-
-
-
-
-
 
 
 
@@ -120,9 +73,6 @@ private:
 int main() {
 
 
-	fstream infile;
-	fstream infilematrix;
-	fstream infilewords;
 	fstream config;
 	string infile_name;
 	string infilematrix_name;
@@ -134,17 +84,15 @@ int main() {
 	int liczit = 0;
 	int liczitnum = 0;
 	int liczitmat = 0;
-	int linieconf = 6;
 	int powt;
 	double sredniaczas = 0;
 	string conftab[6];
 	string conftab2[6];
-	string stringtabit[100];
 	using std::chrono::high_resolution_clock;
 	using std::chrono::duration_cast;
 	using std::chrono::duration;
 	using std::chrono::milliseconds;
-
+	
 	config.open("config.ini", ios::in);
 
 	int i = 0;
@@ -196,24 +144,9 @@ slowa.pobierzdane(instancesize);
 int indeks=0;
 
 for (auto i:liczbydomacierzy.dane) {
-
-
-	
 	indeks++;
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 while (true)
 {

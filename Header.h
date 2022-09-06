@@ -1,18 +1,8 @@
 #include<vector>
-
+#include<string>
 
 extern int macierzfun[1000][1000];
-extern int   iloscdanych;
-extern int iloscdanychmac;
-extern  int  numbersgenerated;
-extern int  rozmiarplikuwej;
-extern int  *danegenerowane;
-extern  int  *danewej;
-extern int *tabit;
-extern int *danezbioru;
 
-
-extern  int  linieconf;
 extern int  min;
 extern  int  max;
 extern int srednia;
@@ -31,3 +21,4 @@ void fsortkubelkowe(std::vector<int>&, int);
 void fsortkopcowanie(std::vector<int>&, int);
 void fjarnikaprima(int[1000][1000], int);
 void fdijkstra(int[1000][1000], int);
+int fhash(std::string, int);
